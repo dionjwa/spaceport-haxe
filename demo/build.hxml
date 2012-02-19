@@ -1,0 +1,6 @@
+-js client/haxe.js
+-D spaceport
+-cp ../src
+-cp src
+-main HelloWorld
+--remap flash:spaceport
