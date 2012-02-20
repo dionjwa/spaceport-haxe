@@ -9,19 +9,23 @@ This repo contains externs so you can write [HaXe][haxe], giving you typed funct
 
 ## The demo
 
-Just double click the appropriate server in the ./demo folder.
+First build the client app with haxe:
+
+	<spaceport-haxe root>: haxe etc/build.hxml
+
+Then start the appropriate server in the ./demo folder.
 
 - Windows:  SpaceportServerWindows.exe
 - Mac: Spaceport Server OS X.app
 - Linux: spaceport-server-linux
 
-Then start the server, and click on the url.  It should open up a browser and show the flash version.
+Then click on the url.  It should open up a browser and show the flash version.
 
 ## Your own games
 
 You need to:
 
-- import the spaceport haxelib in your haxelib file
+- import the spaceport haxelib in your .hxml build file
 - import the 'lib/haxe.Spaceport.js' file in your index.html file *before* your main game script.  See ./demo/index.html
 - add a callback to haxe.Spaceport to get notified when Spaceport.io is ready (this adds the flash.display.Stage variable to haxe.Spaceport):
 
