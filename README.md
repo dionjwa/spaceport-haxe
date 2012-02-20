@@ -5,13 +5,15 @@
 
 [Spaceport.io][sp] is the Flash player re-implemented in iOs, Android, and Html5, allowing you to write code in Javascript and instantly update your game on all supported platforms.
 
-This repo contains externs so you can write [HaXe][haxe], giving you typed functions, code completion, classes, macros, and the ability to export to other platforms.  
+This repo contains externs so you can write [HaXe][haxe], giving you typed functions, code completion, classes, macros, and the ability to export to other platforms.
+
+This is a first draft, it's likely that some of the spaceport classes are not yet in the corresponding flash packages.
 
 ## The demo
 
 First build the client app with haxe:
 
-	<spaceport-haxe root>: haxe etc/build.hxml
+	<spaceport-haxe root/demo>: haxe etc/build.hxml
 
 Then start the appropriate server in the ./demo folder.
 
