@@ -7,7 +7,7 @@
 package spaceport.display;
 
 @:native("sp.DisplayObject")
-extern class DisplayObject extends EventDispatcher 
+extern class DisplayObject extends spaceport.event.EventDispatcher 
 {
 	public var transform(default, default):Transform;
 	public var name(default, default):String;
