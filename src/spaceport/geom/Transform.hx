@@ -4,7 +4,7 @@
 // Original Package
 // flash.geom
 
-package spaceport.display;
+package spaceport.geom;
 
 @:native("sp.Transform")
 extern class Transform 

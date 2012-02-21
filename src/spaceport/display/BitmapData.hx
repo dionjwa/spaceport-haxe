@@ -6,6 +6,12 @@
 
 package spaceport.display;
 
+import spaceport.geom.Point;
+import spaceport.geom.Matrix;
+import spaceport.geom.Rectangle;
+import spaceport.geom.ColorTransform;
+import spaceport.events.IOErrorEvent;
+
 @:native("sp.BitmapData")
 extern class BitmapData 
 {
@@ -16,6 +22,8 @@ extern class BitmapData
 
 	public function new(?arg0:Dynamic, ?arg1:Dynamic, ?arg2:Dynamic, ?arg3:Dynamic) :Void;
 
-	public function copyPixels(?arg0:BitmapData, ?arg1:Rectangle, ?arg2:Point, ?arg3:BitmapData, ?arg4:Point, ?arg5:Bool):Void ;
-	public function draw(?arg0:[BitmapData, DisplayObject], ?arg1:Matrix, ?arg2:ColorTransform, ?arg3:String, ?arg4:Rectangle, ?arg5:Bool):Void ;
+	public function copyPixels(?sourceBitmapData:BitmapData, ?sourceRect:Rectangle, ?destPoint:Point, ?alphaBitmapData:BitmapData, ?alphaPoint:Point, ?mergeAlpha:Bool):Void ;
+	
+	@:overload(function(source:spaceport.display.DisplayObject, ?matrix:spaceport.geom.Matrix, ?colorTransform:spaceport.geom.ColorTransform, ?blendMode:String, ?clipRect:spaceport.geom.Rectangle, ?smoothing:Bool):Void{})
+	public function draw(source:BitmapData, ?matrix:Matrix, ?colorTransform:ColorTransform, ?blendMode:String, ?clipRect:Rectangle, ?smoothing:Bool):Void;
 }

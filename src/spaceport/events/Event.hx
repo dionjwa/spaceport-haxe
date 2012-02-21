@@ -4,7 +4,7 @@
 // Original Package
 // flash.events
 
-package spaceport.event;
+package spaceport.events;
 
 @:native("sp.Event")
 extern class Event 

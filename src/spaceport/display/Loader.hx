@@ -6,6 +6,8 @@
 
 package spaceport.display;
 
+import spaceport.net.URLRequest;
+
 @:native("sp.Loader")
 extern class Loader extends DisplayObjectContainer 
 {

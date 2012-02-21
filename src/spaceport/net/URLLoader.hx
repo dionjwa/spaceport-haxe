@@ -4,7 +4,9 @@
 // Original Package
 // flash.net
 
-package spaceport.display;
+package spaceport.net;
+
+import spaceport.events.EventDispatcher;
 
 @:native("sp.URLLoader")
 extern class URLLoader extends EventDispatcher 

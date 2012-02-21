@@ -1,7 +1,7 @@
 // Original Package
 // flash.net
 
-package spaceport.display;
+package spaceport.net;
 
 @:native("sp.URLRequest")
 extern class URLRequest 

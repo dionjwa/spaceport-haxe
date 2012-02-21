@@ -4,7 +4,7 @@
 // Original Package
 // flash.events
 
-package spaceport.event;
+package spaceport.events;
 
 @:native("sp.MouseEvent")
 extern class MouseEvent extends Event 
@@ -20,6 +20,4 @@ extern class MouseEvent extends Event
 	public var stageY(default, null):Float;
 
 	public function new(?arg0:Dynamic, ?arg1:Dynamic, ?arg2:Dynamic, ?arg3:Dynamic, ?arg4:Dynamic, ?arg5:Dynamic, ?arg6:Dynamic, ?arg7:Dynamic, ?arg8:Dynamic, ?arg9:Dynamic, ?arg10:Dynamic, ?arg11:Dynamic, ?arg12:Dynamic, ?arg13:Dynamic) :Void;
-
-	public function clone():Event ;
 }

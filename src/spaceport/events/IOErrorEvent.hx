@@ -4,22 +4,12 @@
 // Original Package
 // flash.events
 
-package spaceport.display;
+package spaceport.events;
 
 @:native("sp.IOErrorEvent")
-extern class IOErrorEvent extends ErrorEvent {
-
-	// static properties
+extern class IOErrorEvent extends ErrorEvent 
+{
 	public static var IO_ERROR:String = "ioError";
 
-	// properties
-
-	// constructor
 	public function new(?arg0:Dynamic, ?arg1:Dynamic, ?arg2:Dynamic, ?arg3:Dynamic, ?arg4:Dynamic) :Void;
-
-	// static methods
-
-	// methods
-	public function clone():Event ;
-
 }

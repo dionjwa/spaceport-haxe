@@ -6,8 +6,12 @@
 
 package spaceport.display;
 
+import spaceport.geom.Point;
+import spaceport.geom.Rectangle;
+import spaceport.geom.Transform;
+
 @:native("sp.DisplayObject")
-extern class DisplayObject extends spaceport.event.EventDispatcher 
+extern class DisplayObject extends spaceport.events.EventDispatcher 
 {
 	public var transform(default, default):Transform;
 	public var name(default, default):String;
