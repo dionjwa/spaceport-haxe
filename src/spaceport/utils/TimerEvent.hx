@@ -4,7 +4,9 @@
 // Original Package
 // flash.events
 
-package spaceport.display;
+package spaceport.utils;
+
+import spaceport.events.Event;
 
 @:native("sp.TimerEvent")
 extern class TimerEvent extends Event 
@@ -13,6 +15,4 @@ extern class TimerEvent extends Event
 	public static var TIMER:String = "timer";
 
 	public function new(?arg0:Dynamic, ?arg1:Dynamic, ?arg2:Dynamic) :Void;
-
-	public function clone():Event ;
 }
