@@ -2,5 +2,7 @@
 -D spaceport
 -cp ../src
 -cp src
--main HelloWorld
+-main Demo
 --remap flash:spaceport
+
+-cmd cp ../lib/haxe.Spaceport.js client/

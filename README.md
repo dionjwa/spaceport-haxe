@@ -13,15 +13,16 @@ This is a first draft, it's likely that some of the spaceport classes are not ye
 
 First build the client app with haxe:
 
-	<spaceport-haxe root/demo>: haxe etc/build.hxml
+	cd <spaceport-haxe>/demo
+	haxe build.hxml
 
-Then start the appropriate server in the ./demo folder.
+Then start a simple web server with python:
 
-- Windows:  SpaceportServerWindows.exe
-- Mac: Spaceport Server OS X.app
-- Linux: spaceport-server-linux
+	python -m SimpleHTTPServer 8000
 
-Then click on the url.  It should open up a browser and show the flash version.
+Then take your browser to:
+	
+	http://localhost:8000/index.html?platform=flash
 
 ## Your own games
 
