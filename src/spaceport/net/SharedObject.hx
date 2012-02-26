@@ -6,19 +6,12 @@
 
 package spaceport.net;
 
-extern class SharedObject {
-
-	// static properties
-
-	// properties
-
-	// constructor
-	public function new(name:Dynamic);
-
-	// static methods
+@:native("sp.SharedObject")
+extern class SharedObject 
+{
 	public static function getLocal(?name:String, ?arg1:String, ?arg2:Bool):SharedObject ;
 
-	// methods
+	public function new(name:Dynamic);
+	
 	public function flush(?arg0:Float):String ;
-
 }

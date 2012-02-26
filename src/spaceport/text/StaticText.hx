@@ -6,19 +6,12 @@
 
 package spaceport.text;
 
+import spaceport.display.DisplayObject;
+
 @:native("sp.StaticText")
-extern class StaticText extends DisplayObject {
-
-	// static properties
-
-	// properties
+extern class StaticText extends DisplayObject 
+{
 	public var text(default, null):String;
 
-	// constructor
 	public function new() :Void;
-
-	// static methods
-
-	// methods
-
 }

@@ -6,17 +6,7 @@
 
 package spaceport.display;
 
-extern class MorphShape extends DisplayObject {
-
-	// static properties
-
-	// properties
-
-	// constructor
+extern class MorphShape extends DisplayObject 
+{
 	public function new() :Void;
-
-	// static methods
-
-	// methods
-
 }

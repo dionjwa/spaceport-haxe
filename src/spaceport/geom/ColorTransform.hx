@@ -6,11 +6,8 @@
 
 package spaceport.geom;
 
-extern class ColorTransform {
-
-	// static properties
-
-	// properties
+extern class ColorTransform 
+{
 	public var color(default, default):Float;
 	public var redMultiplier(default, default):Float;
 	public var blueMultiplier(default, default):Float;
@@ -21,12 +18,7 @@ extern class ColorTransform {
 	public var greenOffset(default, default):Float;
 	public var blueOffset(default, default):Float;
 
-	// constructor
 	public function new(?redMultiplier:Dynamic, ?greenMultiplier:Dynamic, ?blueMultiplier:Dynamic, ?alphaMultiplier:Dynamic, ?redOffset:Dynamic, ?greenOffset:Dynamic, ?blueOffset:Dynamic, ?alphaOffset:Dynamic) :Void;
 
-	// static methods
-
-	// methods
 	public function concat(?second:ColorTransform):Void ;
-
 }
