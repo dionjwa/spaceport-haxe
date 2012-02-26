@@ -4,7 +4,7 @@
 // Original Package
 // flash.events
 
-package spaceport.display;
+package spaceport.events;
 
 extern class ProgressEvent extends Event {
 

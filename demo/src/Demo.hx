@@ -12,6 +12,8 @@ class Demo
 	public function new() 
 	{
 		flash.media.Sound;
+		flash.utils.Timer;
+		flash.utils.TimerEvent;
 		
 		haxe.Firebug.redirectTraces();
 		

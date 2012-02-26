@@ -4,7 +4,7 @@
 // Original Package
 // flash.events
 
-package spaceport.display;
+package spaceport.events;
 
 @:native("sp.TouchEvent")
 extern class TouchEvent extends Event 

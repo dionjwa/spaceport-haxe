@@ -4,7 +4,7 @@
 // Original Package
 // flash.system
 
-package spaceport.display;
+package spaceport.system;
 
 @:native("sp.ApplicationDomain")
 extern class ApplicationDomain 

@@ -4,5 +4,6 @@
 -cp src
 -main Demo
 --remap flash:spaceport
+--remap fl:spaceport
 
 -cmd cp ../lib/haxe.Spaceport.js client/

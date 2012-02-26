@@ -1,4 +1,6 @@
-package spaceport.display;
+package spaceport.transitions;
+
+import spaceport.events.Event;
 
 @:native("sp.TweenEvent")
 extern class TweenEvent extends Event 

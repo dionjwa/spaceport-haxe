@@ -4,7 +4,7 @@
 // Original Package
 // flash.net
 
-package spaceport.display;
+package spaceport.net;
 
 extern class SharedObject {
 

@@ -4,7 +4,7 @@
 // Original Package
 // flash.text
 
-package spaceport.display;
+package spaceport.text;
 
 @:native("sp.StaticText")
 extern class StaticText extends DisplayObject {

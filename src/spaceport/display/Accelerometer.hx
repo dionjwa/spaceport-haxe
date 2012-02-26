@@ -3,20 +3,12 @@
 
 package spaceport.display;
 
+import spaceport.events.EventDispatcher;
+
 @:native("sp.Accelerometer")
-extern class Accelerometer extends EventDispatcher {
-
-	// static properties
-
-	// properties
-
-	// constructor
+extern class Accelerometer extends EventDispatcher 
+{
+	public function removeEventListener(?type:String, ?listener:Dynamic->Void, ?useCapture:Bool):Void ;
 	public function new() :Void;
-
-	// static methods
-
-	// methods
-	public function removeEventListener(?type:String, ?listener:Function, ?useCapture:Bool):Void ;
-	public function addEventListener(?type:String, ?listener:Function, ?useCapture:Bool, ?priority:Float, ?arg4:Bool):Void ;
-
+	public function addEventListener(?type:String, ?listener:Dynamic->Void, ?useCapture:Bool, ?priority:Float, ?arg4:Bool):Void ;
 }

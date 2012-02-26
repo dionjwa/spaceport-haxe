@@ -3,23 +3,16 @@
 
 package spaceport.display;
 
-extern class AccelerometerEvent extends Event {
+import spaceport.events.Event;
 
-	// static properties
+extern class AccelerometerEvent extends Event 
+{
 	public static var STATUS:String = "status";
 	public static var UPDATE:String = "update";
 
-	// properties
 	public var accelerationX(default, null):String;
 	public var accelerationY(default, null):String;
 	public var accelerationZ(default, null):String;
 
-	// constructor
 	public function new() :Void;
-
-	// static methods
-
-	// methods
-	public function clone():Event ;
-
 }
