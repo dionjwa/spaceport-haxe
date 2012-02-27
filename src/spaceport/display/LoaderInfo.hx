@@ -6,8 +6,11 @@
 
 package spaceport.display;
 
+import spaceport.events.EventDispatcher;
+import spaceport.system.ApplicationDomain;
+
 @:native("sp.LoaderInfo")
-extern class LoaderInfo extends spaceport.events.EventDispatcher 
+extern class LoaderInfo extends EventDispatcher 
 {
 	public var loader(default, null):Loader;
 	public var content(default, null):DisplayObject;
