@@ -1,4 +1,4 @@
--js client/haxe.js
+-js client/hello_world/haxe.js
 -D spaceport
 -cp ../src
 -cp src

@@ -19,6 +19,8 @@ First build the client app with haxe:
 Then start a simple web server with python:
 
 	python -m SimpleHTTPServer 8000
+	
+Or run the the web server supplied with the Spaceport.io SDK, and change the served directory and port.
 
 Then take your browser to:
 	
