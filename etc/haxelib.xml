@@ -1,7 +1,7 @@
 <project name="spaceport" url="https://github.com/dionjwa/spaceport-haxe" license="BSD">
         <user name="dionjwa"/>
         <description>Externs and tools for Spaceport.io</description>
-        <version name="0.1">Initial import</version>
+        <version name="0.2">Working demo for Flash and Html5</version>
         <tag v="spaceport"/>
         <tag v="game"/>
         <tag v="html5"/>
