@@ -8,93 +8,6 @@ sp.EventDispatcher.prototype.willTrigger = null;
 sp.EventDispatcher.prototype.addEventListener = null;
 sp.EventDispatcher.prototype.hasEventListener = null;
 sp.EventDispatcher.prototype.__class__ = sp.EventDispatcher;
-Reflect = function() { }
-Reflect.__name__ = ["Reflect"];
-Reflect.hasField = function(o,field) {
-	if(o.hasOwnProperty != null) return o.hasOwnProperty(field);
-	var arr = Reflect.fields(o);
-	var $it0 = arr.iterator();
-	while( $it0.hasNext() ) {
-		var t = $it0.next();
-		if(t == field) return true;
-	}
-	return false;
-}
-Reflect.field = function(o,field) {
-	var v = null;
-	try {
-		v = o[field];
-	} catch( e ) {
-	}
-	return v;
-}
-Reflect.setField = function(o,field,value) {
-	o[field] = value;
-}
-Reflect.callMethod = function(o,func,args) {
-	return func.apply(o,args);
-}
-Reflect.fields = function(o) {
-	if(o == null) return new Array();
-	var a = new Array();
-	if(o.hasOwnProperty) {
-		for(var i in o) if( o.hasOwnProperty(i) ) a.push(i);
-	} else {
-		var t;
-		try {
-			t = o.__proto__;
-		} catch( e ) {
-			t = null;
-		}
-		if(t != null) o.__proto__ = null;
-		for(var i in o) if( i != "__proto__" ) a.push(i);
-		if(t != null) o.__proto__ = t;
-	}
-	return a;
-}
-Reflect.isFunction = function(f) {
-	return typeof(f) == "function" && f.__name__ == null;
-}
-Reflect.compare = function(a,b) {
-	return a == b?0:a > b?1:-1;
-}
-Reflect.compareMethods = function(f1,f2) {
-	if(f1 == f2) return true;
-	if(!Reflect.isFunction(f1) || !Reflect.isFunction(f2)) return false;
-	return f1.scope == f2.scope && f1.method == f2.method && f1.method != null;
-}
-Reflect.isObject = function(v) {
-	if(v == null) return false;
-	var t = typeof(v);
-	return t == "string" || t == "object" && !v.__enum__ || t == "function" && v.__name__ != null;
-}
-Reflect.deleteField = function(o,f) {
-	if(!Reflect.hasField(o,f)) return false;
-	delete(o[f]);
-	return true;
-}
-Reflect.copy = function(o) {
-	var o2 = { };
-	var _g = 0, _g1 = Reflect.fields(o);
-	while(_g < _g1.length) {
-		var f = _g1[_g];
-		++_g;
-		o2[f] = Reflect.field(o,f);
-	}
-	return o2;
-}
-Reflect.makeVarArgs = function(f) {
-	return function() {
-		var a = new Array();
-		var _g1 = 0, _g = arguments.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			a.push(arguments[i]);
-		}
-		return f(a);
-	};
-}
-Reflect.prototype.__class__ = Reflect;
 if(typeof haxe=='undefined') haxe = {}
 haxe.Log = function() { }
 haxe.Log.__name__ = ["haxe","Log"];
@@ -105,29 +18,20 @@ haxe.Log.clear = function() {
 	js.Boot.__clear_trace();
 }
 haxe.Log.prototype.__class__ = haxe.Log;
+if(typeof spaceport=='undefined') spaceport = {}
+spaceport.Lib = function() { }
+spaceport.Lib.__name__ = ["spaceport","Lib"];
+spaceport.Lib.current = null;
+spaceport.Lib.onSpaceportReady = function(cb) {
+}
+spaceport.Lib.test = function(stage) {
+	haxe.Log.trace("main",{ fileName : "Lib.hx", lineNumber : 28, className : "spaceport.Lib", methodName : "test"});
+}
+spaceport.Lib.prototype.__class__ = spaceport.Lib;
 Demo = function(p) {
 	if( p === $_ ) return;
 	haxe.Firebug.redirectTraces();
-	haxe.Spaceport.onSpaceportReady(function() {
-		haxe.Log.trace("spaceport is ready",{ fileName : "Demo.hx", lineNumber : 17, className : "Demo", methodName : "new"});
-		var libraryLoader = new sp.Loader();
-		var libraryURL = "client/rsrc/avatar.swf";
-		var libraryURLRequest = new sp.URLRequest(libraryURL);
-		var libraryLoaded = function(event) {
-			haxe.Log.trace("client/rsrc/avatar.swf loaded",{ fileName : "Demo.hx", lineNumber : 24, className : "Demo", methodName : "new"});
-			var library = libraryLoader.contentLoaderInfo.applicationDomain;
-			var AvatarClass = library.getDefinition("avatar");
-			var avatar = Type.createInstance(AvatarClass,[]);
-			haxe.Spaceport.current.stage.addChild(avatar);
-			avatar.x = avatar.y = 100;
-			var CircleClass = library.getDefinition("circle");
-			var circle = Type.createInstance(CircleClass,[]);
-			haxe.Spaceport.current.stage.addChild(circle);
-			circle.x = circle.y = 150;
-		};
-		libraryLoader.contentLoaderInfo.addEventListener(sp.Event.COMPLETE,libraryLoaded);
-		libraryLoader.load(libraryURLRequest);
-	});
+	haxe.Log.trace("flash.Lib.current=" + spaceport.Lib.current,{ fileName : "Demo.hx", lineNumber : 15, className : "Demo", methodName : "new"});
 }
 Demo.__name__ = ["Demo"];
 Demo.main = function() {
@@ -204,163 +108,6 @@ Std.random = function(x) {
 	return Math.floor(Math.random() * x);
 }
 Std.prototype.__class__ = Std;
-ValueType = { __ename__ : ["ValueType"], __constructs__ : ["TNull","TInt","TFloat","TBool","TObject","TFunction","TClass","TEnum","TUnknown"] }
-ValueType.TNull = ["TNull",0];
-ValueType.TNull.toString = $estr;
-ValueType.TNull.__enum__ = ValueType;
-ValueType.TInt = ["TInt",1];
-ValueType.TInt.toString = $estr;
-ValueType.TInt.__enum__ = ValueType;
-ValueType.TFloat = ["TFloat",2];
-ValueType.TFloat.toString = $estr;
-ValueType.TFloat.__enum__ = ValueType;
-ValueType.TBool = ["TBool",3];
-ValueType.TBool.toString = $estr;
-ValueType.TBool.__enum__ = ValueType;
-ValueType.TObject = ["TObject",4];
-ValueType.TObject.toString = $estr;
-ValueType.TObject.__enum__ = ValueType;
-ValueType.TFunction = ["TFunction",5];
-ValueType.TFunction.toString = $estr;
-ValueType.TFunction.__enum__ = ValueType;
-ValueType.TClass = function(c) { var $x = ["TClass",6,c]; $x.__enum__ = ValueType; $x.toString = $estr; return $x; }
-ValueType.TEnum = function(e) { var $x = ["TEnum",7,e]; $x.__enum__ = ValueType; $x.toString = $estr; return $x; }
-ValueType.TUnknown = ["TUnknown",8];
-ValueType.TUnknown.toString = $estr;
-ValueType.TUnknown.__enum__ = ValueType;
-Type = function() { }
-Type.__name__ = ["Type"];
-Type.getClass = function(o) {
-	if(o == null) return null;
-	if(o.__enum__ != null) return null;
-	return o.__class__;
-}
-Type.getEnum = function(o) {
-	if(o == null) return null;
-	return o.__enum__;
-}
-Type.getSuperClass = function(c) {
-	return c.__super__;
-}
-Type.getClassName = function(c) {
-	var a = c.__name__;
-	return a.join(".");
-}
-Type.getEnumName = function(e) {
-	var a = e.__ename__;
-	return a.join(".");
-}
-Type.resolveClass = function(name) {
-	var cl;
-	try {
-		cl = eval(name);
-	} catch( e ) {
-		cl = null;
-	}
-	if(cl == null || cl.__name__ == null) return null;
-	return cl;
-}
-Type.resolveEnum = function(name) {
-	var e;
-	try {
-		e = eval(name);
-	} catch( err ) {
-		e = null;
-	}
-	if(e == null || e.__ename__ == null) return null;
-	return e;
-}
-Type.createInstance = function(cl,args) {
-	if(args.length <= 3) return new cl(args[0],args[1],args[2]);
-	if(args.length > 8) throw "Too many arguments";
-	return new cl(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7]);
-}
-Type.createEmptyInstance = function(cl) {
-	return new cl($_);
-}
-Type.createEnum = function(e,constr,params) {
-	var f = Reflect.field(e,constr);
-	if(f == null) throw "No such constructor " + constr;
-	if(Reflect.isFunction(f)) {
-		if(params == null) throw "Constructor " + constr + " need parameters";
-		return f.apply(e,params);
-	}
-	if(params != null && params.length != 0) throw "Constructor " + constr + " does not need parameters";
-	return f;
-}
-Type.createEnumIndex = function(e,index,params) {
-	var c = e.__constructs__[index];
-	if(c == null) throw index + " is not a valid enum constructor index";
-	return Type.createEnum(e,c,params);
-}
-Type.getInstanceFields = function(c) {
-	var a = Reflect.fields(c.prototype);
-	a.remove("__class__");
-	return a;
-}
-Type.getClassFields = function(c) {
-	var a = Reflect.fields(c);
-	a.remove("__name__");
-	a.remove("__interfaces__");
-	a.remove("__super__");
-	a.remove("prototype");
-	return a;
-}
-Type.getEnumConstructs = function(e) {
-	var a = e.__constructs__;
-	return a.copy();
-}
-Type["typeof"] = function(v) {
-	switch(typeof(v)) {
-	case "boolean":
-		return ValueType.TBool;
-	case "string":
-		return ValueType.TClass(String);
-	case "number":
-		if(Math.ceil(v) == v % 2147483648.0) return ValueType.TInt;
-		return ValueType.TFloat;
-	case "object":
-		if(v == null) return ValueType.TNull;
-		var e = v.__enum__;
-		if(e != null) return ValueType.TEnum(e);
-		var c = v.__class__;
-		if(c != null) return ValueType.TClass(c);
-		return ValueType.TObject;
-	case "function":
-		if(v.__name__ != null) return ValueType.TObject;
-		return ValueType.TFunction;
-	case "undefined":
-		return ValueType.TNull;
-	default:
-		return ValueType.TUnknown;
-	}
-}
-Type.enumEq = function(a,b) {
-	if(a == b) return true;
-	try {
-		if(a[0] != b[0]) return false;
-		var _g1 = 2, _g = a.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			if(!Type.enumEq(a[i],b[i])) return false;
-		}
-		var e = a.__enum__;
-		if(e != b.__enum__ || e == null) return false;
-	} catch( e ) {
-		return false;
-	}
-	return true;
-}
-Type.enumConstructor = function(e) {
-	return e[0];
-}
-Type.enumParameters = function(e) {
-	return e.slice(2);
-}
-Type.enumIndex = function(e) {
-	return e[1];
-}
-Type.prototype.__class__ = Type;
 if(typeof js=='undefined') js = {}
 js.Lib = function() { }
 js.Lib.__name__ = ["js","Lib"];
@@ -562,6 +309,10 @@ js.Boot.prototype.__class__ = js.Boot;
 $_ = {}
 js.Boot.__res = {}
 js.Boot.__init();
+{
+	console.log("test");
+	function main (stage) {flash.Lib.test(stage);}
+}
 {
 	String.prototype.__class__ = String;
 	String.__name__ = ["String"];
