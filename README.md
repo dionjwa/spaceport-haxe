@@ -31,10 +31,14 @@ Then take your browser to:
 You need to:
 
 - import the spaceport haxelib in your .hxml build file
-- import the 'lib/haxe.Spaceport.js' file in your index.html file *before* your main game script.  See ./demo/index.html
-- add a callback to haxe.Spaceport to get notified when Spaceport.io is ready (this adds the flash.display.Stage variable to haxe.Spaceport):
+- remap 
 
-	Spaceport.onSpaceportReady(function () :Void {
+	--remap flash:spaceport
+	--remap fl:spaceport
+
+- add a callback to flash.Lib to get notified when Spaceport.io is ready:
+
+	flash.Lib.onSpaceportReady(function () :Void {
 			new HelloWorld();
 		});
 		
